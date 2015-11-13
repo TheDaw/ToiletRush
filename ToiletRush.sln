@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToiletRush.CSharp.Plugins", "ToiletRush.CSharp.Plugins.csproj", "{9C6BC154-217A-718B-76F8-FD15834D53F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToiletRush.CSharp", "ToiletRush.CSharp.csproj", "{417D92F3-CFA6-8B85-34CB-48377C009A58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToiletRush.CSharp.Editor", "ToiletRush.CSharp.Editor.csproj", "{0409CE59-D760-DF52-DDE9-1692B5772853}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C6BC154-217A-718B-76F8-FD15834D53F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C6BC154-217A-718B-76F8-FD15834D53F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C6BC154-217A-718B-76F8-FD15834D53F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C6BC154-217A-718B-76F8-FD15834D53F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{417D92F3-CFA6-8B85-34CB-48377C009A58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{417D92F3-CFA6-8B85-34CB-48377C009A58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{417D92F3-CFA6-8B85-34CB-48377C009A58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{417D92F3-CFA6-8B85-34CB-48377C009A58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0409CE59-D760-DF52-DDE9-1692B5772853}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0409CE59-D760-DF52-DDE9-1692B5772853}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0409CE59-D760-DF52-DDE9-1692B5772853}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0409CE59-D760-DF52-DDE9-1692B5772853}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
