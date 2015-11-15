@@ -1,10 +1,14 @@
 fileFormatVersion: 2
 guid: 0ada1c974989cff4dac6974150e72bec
-timeCreated: 1447371814
+timeCreated: 1447606642
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Man: {fileID: 193252, guid: ef3e0c10dc011c04da1b639a2e73a50c, type: 2}
+  - Woman: {fileID: 105570, guid: 500e5c9c8aa7b234eb31d92f7ad65a60, type: 2}
+  - Boy: {fileID: 102492, guid: 46e83ea27858e4f478d49836d44f2b34, type: 2}
+  - Girl: {fileID: 138442, guid: fd8498580ba1b0d45873f258da7995e3, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

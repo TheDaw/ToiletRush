@@ -36,16 +36,16 @@ public class PersonSpawner : MonoBehaviour {
         switch (Random.Range(0, 3))
         {
             case 0:
-                Instantiate(Man, new Vector3(0, 50, 0), Quaternion.identity);
+                Instantiate(Man, new Vector3(0, 10, 0), Quaternion.identity);
                 break;
             case 1:
-                Instantiate(Woman, new Vector3(0, 50, 0), Quaternion.identity);
+                Instantiate(Woman, new Vector3(0, 10, 0), Quaternion.identity);
                 break;
             case 2:
-                Instantiate(Boy, new Vector3(0, 50, 0), Quaternion.identity);
+                Instantiate(Boy, new Vector3(0, 10, 0), Quaternion.identity);
                 break;
             case 3:
-                Instantiate(Girl, new Vector3(0, 50, 0), Quaternion.identity);
+                Instantiate(Girl, new Vector3(0, 10, 0), Quaternion.identity);
                 break;
         }
     }

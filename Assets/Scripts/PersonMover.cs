@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PersonMover : MonoBehaviour {
 
+    public bool selected = false;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -14,4 +16,9 @@ public class PersonMover : MonoBehaviour {
         this.gameObject.transform.Translate(new Vector3(0, -Time.deltaTime));
 	
 	}
+
+    void OnMouseDown()
+    {
+        selected = true;       
+    }
 }
