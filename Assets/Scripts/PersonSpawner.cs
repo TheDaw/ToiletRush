@@ -21,7 +21,7 @@ public class PersonSpawner : MonoBehaviour {
 
         spawner = spawner + Time.deltaTime;
 
-        if (spawner > 10)
+        if (spawner > 3)
         {
             spawnPerson();
             spawner = 0;

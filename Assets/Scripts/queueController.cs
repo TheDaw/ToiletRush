@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class queueController : MonoBehaviour {
 
     public bool[] queueSpots = new bool[10];
     public Vector2[] queuePositions = new Vector2[10];
+    public GameObject activePerson = new GameObject();
+    
 
 	// Use this for initialization
 	void Start () {
@@ -40,5 +43,14 @@ public class queueController : MonoBehaviour {
         }
 
         return queuePositions[freePos];
+    }
+
+    public Vector2 moveForward(int currentPosition)
+    {        
+        queueSpots[currentPosition] = false;
+        if (currentPosition >= 0)
+            return queuePositions[currentPosition - 1];
+        else
+            return new Vector2(0, 0);
     }
 }

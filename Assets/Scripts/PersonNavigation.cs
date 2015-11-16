@@ -6,13 +6,15 @@ public class PersonNavigation : MonoBehaviour {
     public enum personStates { moveToQueue, queue, moveToRoom, inRoom, leaving}
     public bool selected = false;
     public personStates state = personStates.moveToQueue;
+    public Vector3 positionInfo;
     public Vector2 targetPosition;
     public Vector2 speed = new Vector2((float)0.5, (float)0.5);
     public Vector2 direction = new Vector2(0, 0);
+    public int positionInQueue;
     public GameObject queue;
     public GameObject targetRoom;
     public GameObject gameHandler;
-    public float toiletTime = 5;
+    public float toiletTime = 2;
     
 
 	// Use this for initialization
@@ -20,7 +22,17 @@ public class PersonNavigation : MonoBehaviour {
         queue = GameObject.FindGameObjectWithTag("Queue");
         gameHandler = GameObject.FindGameObjectWithTag("GameController");
         Vector2 startPosition = this.transform.position;
-        targetPosition = queue.GetComponent<queueController>().getNextQueuePosition();        
+        positionInfo = queue.GetComponent<queueController>().getNextQueuePosition();
+
+        targetPosition.x = positionInfo.x;
+        targetPosition.y = positionInfo.y;
+        positionInQueue = (int)positionInfo.z;
+
+        if (targetPosition.y == 0)
+        {
+            gameHandler.GetComponent<selectedController>().updateSelected(this.gameObject);
+            selected = true;
+        }
     }
 	
 	// Update is called once per frame
@@ -49,8 +61,8 @@ public class PersonNavigation : MonoBehaviour {
 
     void OnMouseDown()
     {
-        selected = true;
-        gameHandler.GetComponent<selectedController>().updateSelected(this.gameObject);
+        //selected = true;
+        //gameHandler.GetComponent<selectedController>().updateSelected(this.gameObject);
         //GetComponent<SpriteRenderer>().color = Color.red;
     }
     
@@ -66,6 +78,27 @@ public class PersonNavigation : MonoBehaviour {
         targetRoom = room;
         targetPosition = room.transform.position;
         state = personStates.moveToRoom;
+    }
+
+    public void moveForward()
+    {
+        if (selected == false)
+        {
+            positionInfo = queue.GetComponent<queueController>().moveForward(positionInQueue);
+            targetPosition.x = positionInfo.x;
+            targetPosition.y = positionInfo.y;
+            positionInQueue = (int)positionInfo.z;
+            state = personStates.moveToQueue;
+        }
+        else
+            queue.GetComponent<queueController>().moveForward(positionInQueue);
+
+        if (targetPosition.y == 0)
+        {
+            gameHandler.GetComponent<selectedController>().updateSelected(this.gameObject);
+            selected = true;
+        }
+
     }
 
     void moveToQueueUpdate()
@@ -91,6 +124,8 @@ public class PersonNavigation : MonoBehaviour {
 
     void moveToRoomUpdate()
     {
+        selected = false;
+
         getDirection(transform.position, targetPosition);
 
         Vector3 movement = new Vector3(
