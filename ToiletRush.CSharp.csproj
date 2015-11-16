@@ -80,6 +80,7 @@
     <Compile Include="Assets\Scripts\RoomCapacity.cs" />
     <Compile Include="Assets\Scripts\ToiletTime.cs" />
     <Compile Include="Assets\Scripts\queueController.cs" />
+    <Compile Include="Assets\Scripts\selectedController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />

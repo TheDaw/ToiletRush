@@ -10,11 +10,15 @@ public class PersonNavigation : MonoBehaviour {
     public Vector2 speed = new Vector2((float)0.5, (float)0.5);
     public Vector2 direction = new Vector2(0, 0);
     public GameObject queue;
+    public GameObject targetRoom;
+    public GameObject gameHandler;
+    public float toiletTime = 5;
     
 
 	// Use this for initialization
 	void Start () {
         queue = GameObject.FindGameObjectWithTag("Queue");
+        gameHandler = GameObject.FindGameObjectWithTag("GameController");
         Vector2 startPosition = this.transform.position;
         targetPosition = queue.GetComponent<queueController>().getNextQueuePosition();        
     }
@@ -31,7 +35,7 @@ public class PersonNavigation : MonoBehaviour {
                 queueUpdate();
                 break;
             case personStates.moveToRoom:
-                //
+                moveToRoomUpdate();
                 break;
             case personStates.inRoom:
                 inRoomUpdate();
@@ -46,6 +50,8 @@ public class PersonNavigation : MonoBehaviour {
     void OnMouseDown()
     {
         selected = true;
+        gameHandler.GetComponent<selectedController>().updateSelected(this.gameObject);
+        //GetComponent<SpriteRenderer>().color = Color.red;
     }
     
 
@@ -53,6 +59,13 @@ public class PersonNavigation : MonoBehaviour {
     {
         direction.x = end.x - start.x;
         direction.y = end.y - start.y;        
+    }
+
+    public void chooseRoom(GameObject room)
+    {
+        targetRoom = room;
+        targetPosition = room.transform.position;
+        state = personStates.moveToRoom;
     }
 
     void moveToQueueUpdate()
@@ -67,7 +80,7 @@ public class PersonNavigation : MonoBehaviour {
         movement *= Time.deltaTime;
         transform.Translate(movement);
 
-        if (transform.position.y <= targetPosition.y)
+        if (transform.position.y <= targetPosition.y+0.25)
         {
             state = personStates.queue;
         }    
@@ -76,16 +89,51 @@ public class PersonNavigation : MonoBehaviour {
     void queueUpdate()
     { }
 
-    void selectedUpdate()
-    { }
+    void moveToRoomUpdate()
+    {
+        getDirection(transform.position, targetPosition);
+
+        Vector3 movement = new Vector3(
+       speed.x * direction.x,
+       speed.y * direction.y,
+       0);
+
+        movement *= Time.deltaTime;
+        transform.Translate(movement);
+
+        if (transform.position.y <= targetPosition.y+0.25)
+        {
+            state = personStates.inRoom;
+        }
+    }
+
 
     void inRoomUpdate()
     {
+        toiletTime -= Time.deltaTime;
 
+        if (toiletTime < 0)
+        {
+            state = personStates.leaving;
+            targetPosition = new Vector2(0, -10);
+        }
     }
 
     void leaveUpdate()
     {
+        getDirection(transform.position, targetPosition);
 
+        Vector3 movement = new Vector3(
+       speed.x * direction.x,
+       speed.y * direction.y,
+       0);
+
+        movement *= Time.deltaTime;
+        transform.Translate(movement);
+
+        if (transform.position.y <= targetPosition.y +0.5)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

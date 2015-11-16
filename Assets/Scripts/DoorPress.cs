@@ -3,10 +3,12 @@ using System.Collections;
 
 public class DoorPress : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
+    public GameObject gameHandler;
+
+    // Use this for initialization
+    void Start () {
+        gameHandler = GameObject.FindGameObjectWithTag("GameController");
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -15,6 +17,6 @@ public class DoorPress : MonoBehaviour {
 
     void OnMouseDown()
     {
-        this.gameObject.transform.Translate(new Vector3(0, 1));
+        gameHandler.GetComponent<selectedController>().giveSelectedTarget(this.gameObject);
     }
 }
