@@ -4,16 +4,17 @@ using System.Collections.Generic;
 
 public class queueController : MonoBehaviour {
 
-    public bool[] queueSpots = new bool[10];
-    public Vector2[] queuePositions = new Vector2[10];
+    public bool[] queueSpots = new bool[50];
+    public Vector2[] queuePositions = new Vector2[50];
     public GameObject activePerson = new GameObject();
-    
+    public int queueCount = 0;
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start() {
 
         float yPos = 0;
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 50; i++)
         {
             queueSpots[i] = false;
 
@@ -22,17 +23,17 @@ public class queueController : MonoBehaviour {
 
             yPos += (float)0.5;
         }
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    }
 
-    public Vector2 getNextQueuePosition()
+    // Update is called once per frame
+    void Update() {
+
+    }
+
+    public Vector3 getNextQueuePosition()
     {
         int freePos = -1;
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 50; i++)
         {
             if (queueSpots[i] == false)
             {
@@ -41,16 +42,48 @@ public class queueController : MonoBehaviour {
                 break;
             }
         }
+        Vector3 info = new Vector3();
+        info.x = queuePositions[freePos].x;
+        info.y = queuePositions[freePos].y;
+        info.z = freePos;
 
-        return queuePositions[freePos];
+        return info;
     }
 
     public Vector2 moveForward(int currentPosition)
-    {        
+    {
         queueSpots[currentPosition] = false;
-        if (currentPosition >= 0)
+        if (currentPosition > 0)
+        {
+            queueSpots[currentPosition - 1] = true;
             return queuePositions[currentPosition - 1];
+        }
         else
             return new Vector2(0, 0);
+    }
+
+    public void DoorPressed()
+    {
+        PersonNavigation[] persons;
+        persons = GetComponentsInChildren<PersonNavigation>();
+        foreach (PersonNavigation person in persons)
+        {
+            person.DoorClicked();
+        }
+    }
+
+    public int getQueueCount()
+    {
+        return queueCount;
+    }
+
+    public void addQueueCount()
+    {
+        queueCount++;
+    }
+
+    public void subtractQueueCount()
+    {
+        queueCount--;
     }
 }

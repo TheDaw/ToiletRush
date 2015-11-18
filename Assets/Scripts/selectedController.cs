@@ -23,6 +23,11 @@ public class selectedController : MonoBehaviour {
         selectedPerson = selected;
     }
 
+    public void removeSelected()
+    {
+        selectedPerson = null;
+    }
+
     public void giveSelectedTarget(GameObject room)
     {
         selectedPerson.GetComponent<PersonNavigation>().chooseRoom(room);

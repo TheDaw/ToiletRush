@@ -17,24 +17,20 @@ public class DoorPress : MonoBehaviour {
 
     void OnMouseDown()
     {
-        gameHandler.GetComponent<selectedController>().giveSelectedTarget(this.gameObject);
+        gameHandler.GetComponent<selectedController>().giveSelectedTarget(this.gameObject);       
+
+         GameObject queue;
 
 
-         GameObject[] persons;
+        queue = GameObject.FindGameObjectWithTag("Queue");
 
-
-        persons = GameObject.FindGameObjectsWithTag("Person");
+        queue.GetComponent<queueController>().DoorPressed();
 
         //foreach (GameObject person in persons)
         //{
-         //   person.GetComponent<PersonNavigation>().moveForward();
+        //    person.GetComponent<PersonNavigation>().moveForward();
         //}
 
-        for (int i = 0; i < persons.Length; i++)
-        {
-            persons[i].GetComponent<PersonNavigation>().moveForward();
-        }
-        
     }
 }
 

@@ -7,25 +7,28 @@ public class PersonSpawner : MonoBehaviour {
     public float spawner = 0;
     public GameObject Man;
     public GameObject Woman;
-    public GameObject Boy;
-    public GameObject Girl;
     Random ranGen = new Random();
+    GameObject queue;
+    GameObject childControl;
 
 	// Use this for initialization
 	void Start () {
-	
-	}
+        queue = GameObject.FindGameObjectWithTag("Queue");
+    }
 	
 	// Update is called once per frame
 	void Update () {
-
-        spawner = spawner + Time.deltaTime;
-
-        if (spawner > 3)
+        if (queue.GetComponent<queueController>().getQueueCount() < 50)
         {
-            spawnPerson();
-            spawner = 0;
-            totalActive++;
+
+            spawner = spawner + Time.deltaTime;
+
+            if (spawner > 3)
+            {
+                spawnPerson();
+                spawner = 0;
+                totalActive++;
+            }
         }
 
         
@@ -33,19 +36,17 @@ public class PersonSpawner : MonoBehaviour {
 
     void spawnPerson()
     {
-        switch (Random.Range(0, 3))
+        switch (Random.Range(0, 2))
         {
             case 0:
-                Instantiate(Man, new Vector3(0, 10, 0), Quaternion.identity);
+                childControl = Instantiate(Man, new Vector3(0, 10, 0), Quaternion.identity) as GameObject;
+                childControl.transform.parent = queue.transform;
+                queue.GetComponent<queueController>().addQueueCount();
                 break;
             case 1:
-                Instantiate(Woman, new Vector3(0, 10, 0), Quaternion.identity);
-                break;
-            case 2:
-                Instantiate(Boy, new Vector3(0, 10, 0), Quaternion.identity);
-                break;
-            case 3:
-                Instantiate(Girl, new Vector3(0, 10, 0), Quaternion.identity);
+                childControl = Instantiate(Woman, new Vector3(0, 10, 0), Quaternion.identity) as GameObject;
+                childControl.transform.parent = queue.transform;
+                queue.GetComponent<queueController>().addQueueCount();
                 break;
         }
     }
