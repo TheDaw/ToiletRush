@@ -154,9 +154,35 @@ public class PersonNavigation : MonoBehaviour {
         //    state = personStates.leaving;
         //    targetPosition = new Vector2(0, -10);
         //}
-        queue.GetComponent<queueController>().subtractQueueCount();
-        Destroy(this.gameObject);
-    }
+        if (this.tag == "Male")
+        {
+            if (targetRoom.tag == "Male Door")
+            {
+                queue.GetComponent<queueController>().subtractQueueCount();
+                GameObject.FindGameObjectWithTag("UI").GetComponent<GameConditions>().incrementScore();
+                Destroy(this.gameObject);
+            }
+            else if (targetRoom.tag == "Female Door")
+            {
+                Application.LoadLevel("Game Over");
+               // GUI.Box(new Rect(0, 0, Screen.width / 2, Screen.height / 2), "This is the text to be displayed");
+            }
+        }
+        if (this.tag == "Female")
+        {
+            if (targetRoom.tag == "Female Door")
+            {
+                queue.GetComponent<queueController>().subtractQueueCount();
+                GameObject.FindGameObjectWithTag("UI").GetComponent<GameConditions>().incrementScore();
+                Destroy(this.gameObject);
+            }
+            else if (targetRoom.tag == "Male Door")
+            {
+                Application.LoadLevel("Game Over");
+                // GUI.Box(new Rect(0, 0, Screen.width / 2, Screen.height / 2), "This is the text to be displayed");
+            }
+        }
+    }  
 
     void leaveUpdate()
     {

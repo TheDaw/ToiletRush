@@ -21,14 +21,14 @@ public class PersonSpawner : MonoBehaviour {
         if (queue.GetComponent<queueController>().getQueueCount() < 50)
         {
 
-            spawner = spawner + Time.deltaTime;
+            //spawner = spawner + Time.deltaTime;
 
-            if (spawner > 3)
-            {
+            //if (spawner > 1)
+            //{
                 spawnPerson();
-                spawner = 0;
+                //spawner = 0;
                 totalActive++;
-            }
+            //}
         }
 
         

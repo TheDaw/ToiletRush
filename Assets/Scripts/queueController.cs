@@ -8,6 +8,7 @@ public class queueController : MonoBehaviour {
     public Vector2[] queuePositions = new Vector2[50];
     public GameObject activePerson = new GameObject();
     public int queueCount = 0;
+    public int score = 0;
 
 
     // Use this for initialization
@@ -21,7 +22,7 @@ public class queueController : MonoBehaviour {
             queuePositions[i].x = 0;
             queuePositions[i].y = yPos;
 
-            yPos += (float)0.5;
+            yPos += (float)1.25;
         }
     }
 
