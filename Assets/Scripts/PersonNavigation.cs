@@ -8,7 +8,7 @@ public class PersonNavigation : MonoBehaviour {
     public personStates state = personStates.moveToQueue;
     public Vector3 positionInfo;
     public Vector2 targetPosition;
-    public Vector2 speed = new Vector2((float)2, (float)2);
+    public Vector2 speed; 
     public Vector2 direction = new Vector2(0, 0);
     public int positionInQueue;
     public GameObject queue;
@@ -35,6 +35,8 @@ public class PersonNavigation : MonoBehaviour {
             gameHandler.GetComponent<selectedController>().updateSelected(this.gameObject);
             selected = true;
         }        
+
+        speed = new Vector2((float)10, (float)10); 
     }
 	
 	// Update is called once per frame
@@ -164,6 +166,7 @@ public class PersonNavigation : MonoBehaviour {
             }
             else if (targetRoom.tag == "Female Door")
             {
+                PlayerPrefs.SetInt("Player Score", GameObject.FindGameObjectWithTag("UI").GetComponent<GameConditions>().score); 
                 Application.LoadLevel("Game Over");
                // GUI.Box(new Rect(0, 0, Screen.width / 2, Screen.height / 2), "This is the text to be displayed");
             }
@@ -178,6 +181,7 @@ public class PersonNavigation : MonoBehaviour {
             }
             else if (targetRoom.tag == "Male Door")
             {
+                PlayerPrefs.SetInt("Player Score", GameObject.FindGameObjectWithTag("UI").GetComponent<GameConditions>().score);
                 Application.LoadLevel("Game Over");
                 // GUI.Box(new Rect(0, 0, Screen.width / 2, Screen.height / 2), "This is the text to be displayed");
             }

@@ -76,6 +76,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\DoorPress.cs" />
     <Compile Include="Assets\Scripts\GameConditions.cs" />
+    <Compile Include="Assets\Scripts\GameOverTotal.cs" />
     <Compile Include="Assets\Scripts\MAinMenu.cs" />
     <Compile Include="Assets\Scripts\MenuPersonScroller.cs" />
     <Compile Include="Assets\Scripts\MenuPersonSpawner.cs" />
