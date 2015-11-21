@@ -176,7 +176,7 @@ public class PersonNavigation : MonoBehaviour {
             if (targetRoom.tag == "Female Door")
             {
                 queue.GetComponent<queueController>().subtractQueueCount();
-                GameObject.FindGameObjectWithTag("UI").GetComponent<GameConditions>().incrementScore();
+                GameObject.FindGameObjectWithTag("UI").GetComponent<GameConditions>().incrementScore();                
                 Destroy(this.gameObject);
             }
             else if (targetRoom.tag == "Male Door")

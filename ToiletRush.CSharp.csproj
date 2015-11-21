@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\NewGame.cs" />
     <Compile Include="Assets\Scripts\PersonNavigation.cs" />
     <Compile Include="Assets\Scripts\PersonSpawner.cs" />
+    <Compile Include="Assets\Scripts\Plus1.cs" />
     <Compile Include="Assets\Scripts\QuitGame.cs" />
     <Compile Include="Assets\Scripts\RoomCapacity.cs" />
     <Compile Include="Assets\Scripts\ToiletTime.cs" />

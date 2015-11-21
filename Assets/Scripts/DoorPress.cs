@@ -4,6 +4,7 @@ using System.Collections;
 public class DoorPress : MonoBehaviour {
 
     public GameObject gameHandler;
+    public GameObject plus1;
 
     // Use this for initialization
     void Start () {
@@ -25,6 +26,8 @@ public class DoorPress : MonoBehaviour {
         queue = GameObject.FindGameObjectWithTag("Queue");
 
         queue.GetComponent<queueController>().DoorPressed();
+
+        Instantiate(plus1, transform.position, Quaternion.identity);
 
         //foreach (GameObject person in persons)
         //{

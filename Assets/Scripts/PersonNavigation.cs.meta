@@ -1,11 +1,14 @@
 fileFormatVersion: 2
 guid: 0274af066a36c4e44938fc025badc1a3
-timeCreated: 1447612820
+timeCreated: 1448065128
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
-  - Queue: {fileID: 172112, guid: c4c3d3a4379e2ed428db44284735c3b9, type: 2}
+  - queue: {instanceID: 0}
+  - targetRoom: {instanceID: 0}
+  - gameHandler: {instanceID: 0}
+  - plus1: {fileID: 158580, guid: cb089c658b1ea204da37f80c50c44534, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
