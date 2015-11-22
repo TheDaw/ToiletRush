@@ -111,6 +111,9 @@
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
     </Reference>
+    <Reference Include="JarResolverLib">
+      <HintPath>Assets\GooglePlayGames\Editor\JarResolverLib.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="ToiletRush.CSharp.Plugins.csproj">
@@ -138,8 +141,35 @@
     <Compile Include="Assets\Editor\ImageEffects\SunShaftsEditor.cs" />
     <Compile Include="Assets\Editor\ImageEffects\TonemappingEditor.cs" />
     <Compile Include="Assets\Editor\ImageEffects\VignetteAndChromaticAberrationEditor.cs" />
+    <Compile Include="Assets\GooglePlayGames\Editor\BackgroundResolution.cs" />
+    <Compile Include="Assets\GooglePlayGames\Editor\CocoaPodHelper.cs" />
+    <Compile Include="Assets\GooglePlayGames\Editor\GPGSAndroidSetupUI.cs" />
+    <Compile Include="Assets\GooglePlayGames\Editor\GPGSDocsUI.cs" />
+    <Compile Include="Assets\GooglePlayGames\Editor\GPGSExportPackageUI.cs" />
+    <Compile Include="Assets\GooglePlayGames\Editor\GPGSIOSSetupUI.cs" />
+    <Compile Include="Assets\GooglePlayGames\Editor\GPGSInstructionWindow.cs" />
+    <Compile Include="Assets\GooglePlayGames\Editor\GPGSPostBuild.cs" />
+    <Compile Include="Assets\GooglePlayGames\Editor\GPGSProjectSettings.cs" />
+    <Compile Include="Assets\GooglePlayGames\Editor\GPGSStrings.cs" />
+    <Compile Include="Assets\GooglePlayGames\Editor\GPGSUpgrader.cs" />
+    <Compile Include="Assets\GooglePlayGames\Editor\GPGSUtil.cs" />
+    <Compile Include="Assets\GooglePlayGames\Editor\NearbyConnectionUI.cs" />
+    <Compile Include="Assets\GooglePlayGames\Editor\PlistBuddyHelper.cs" />
+    <Compile Include="Assets\GooglePlayGames\Editor\xcode\Elements.cs" />
+    <Compile Include="Assets\GooglePlayGames\Editor\xcode\Lexer.cs" />
+    <Compile Include="Assets\GooglePlayGames\Editor\xcode\Objects.cs" />
+    <Compile Include="Assets\GooglePlayGames\Editor\xcode\PBXProject.cs" />
+    <Compile Include="Assets\GooglePlayGames\Editor\xcode\Parser.cs" />
+    <Compile Include="Assets\GooglePlayGames\Editor\xcode\Sections.cs" />
+    <Compile Include="Assets\GooglePlayGames\Editor\xcode\Serializer.cs" />
+    <Compile Include="Assets\GooglePlayGames\Editor\xcode\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\GooglePlayGames\Editor\Podfile.txt" />
+    <None Include="Assets\GooglePlayGames\Editor\template-AndroidManifest.txt" />
+    <None Include="Assets\GooglePlayGames\Editor\template-Constants.txt" />
+    <None Include="Assets\GooglePlayGames\Editor\template-GameInfo.txt" />
+    <None Include="Assets\Plugins\Android\MainLibProj\AndroidManifest.xml" />
     <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
