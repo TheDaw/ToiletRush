@@ -74,6 +74,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\GPGSIds.cs" />
     <Compile Include="Assets\GooglePlayGames\BasicApi\Achievement.cs" />
     <Compile Include="Assets\GooglePlayGames\BasicApi\CommonStatusCodes.cs" />
     <Compile Include="Assets\GooglePlayGames\BasicApi\CommonTypes.cs" />
@@ -133,6 +134,8 @@
     <Compile Include="Assets\GooglePlayGames\Platforms\Android\Gms\Games\Stats\Stats.cs" />
     <Compile Include="Assets\GooglePlayGames\Platforms\Android\Gms\Games\Stats\StatsObject.cs" />
     <Compile Include="Assets\GooglePlayGames\Platforms\IClientImpl.cs" />
+    <Compile Include="Assets\GooglePlayGames\Platforms\IOS\IOSClient.cs" />
+    <Compile Include="Assets\GooglePlayGames\Platforms\IOS\IOSTokenClient.cs" />
     <Compile Include="Assets\GooglePlayGames\Platforms\Native\CallbackUtils.cs" />
     <Compile Include="Assets\GooglePlayGames\Platforms\Native\ConversionUtils.cs" />
     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\Achievement.cs" />
@@ -245,6 +248,7 @@
     <Compile Include="Assets\GooglePlayGames\Platforms\TokenClient.cs" />
     <Compile Include="Assets\GooglePlayGames\PluginVersion.cs" />
     <Compile Include="Assets\Scripts\DoorPress.cs" />
+    <Compile Include="Assets\Scripts\GPGS.cs" />
     <Compile Include="Assets\Scripts\GameConditions.cs" />
     <Compile Include="Assets\Scripts\GameOverTotal.cs" />
     <Compile Include="Assets\Scripts\MAinMenu.cs" />
@@ -257,6 +261,8 @@
     <Compile Include="Assets\Scripts\QuitGame.cs" />
     <Compile Include="Assets\Scripts\RoomCapacity.cs" />
     <Compile Include="Assets\Scripts\ToiletTime.cs" />
+    <Compile Include="Assets\Scripts\ViewAchieve.cs" />
+    <Compile Include="Assets\Scripts\ViewLeaderboard.cs" />
     <Compile Include="Assets\Scripts\queueController.cs" />
     <Compile Include="Assets\Scripts\selectedController.cs" />
   </ItemGroup>

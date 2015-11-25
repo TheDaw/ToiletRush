@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using GooglePlayGames;
+using UnityEngine.SocialPlatforms;
 
 public class PersonNavigation : MonoBehaviour {
 
@@ -166,7 +168,11 @@ public class PersonNavigation : MonoBehaviour {
             }
             else if (targetRoom.tag == "Female Door")
             {
-                PlayerPrefs.SetInt("Player Score", GameObject.FindGameObjectWithTag("UI").GetComponent<GameConditions>().score); 
+                PlayerPrefs.SetInt("Player Score", GameObject.FindGameObjectWithTag("UI").GetComponent<GameConditions>().score);
+                if (PlayerPrefs.GetInt("Player SCore") == 99)
+                {
+                    Social.ReportProgress("CgkI9fGT-7MIEAIQDQ", 100.0f, (bool success) => { });
+                }                
                 Application.LoadLevel("Game Over");
                // GUI.Box(new Rect(0, 0, Screen.width / 2, Screen.height / 2), "This is the text to be displayed");
             }
@@ -182,6 +188,8 @@ public class PersonNavigation : MonoBehaviour {
             else if (targetRoom.tag == "Male Door")
             {
                 PlayerPrefs.SetInt("Player Score", GameObject.FindGameObjectWithTag("UI").GetComponent<GameConditions>().score);
+                if (PlayerPrefs.GetInt("Player SCore") == 99)
+                    { Social.ReportProgress("CgkI9fGT-7MIEAIQDQ", 100.0f, (bool success) => { }); }
                 Application.LoadLevel("Game Over");
                 // GUI.Box(new Rect(0, 0, Screen.width / 2, Screen.height / 2), "This is the text to be displayed");
             }

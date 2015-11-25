@@ -15,6 +15,7 @@ public class QuitGame : MonoBehaviour {
 
     void OnMouseDown()
     {
+        ((GooglePlayGames.PlayGamesPlatform)Social.Active).SignOut();
         Application.Quit();
     }
 }
