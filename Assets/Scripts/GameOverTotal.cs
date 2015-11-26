@@ -9,13 +9,14 @@ public class GameOverTotal : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+        scoreText.pixelOffset = new Vector2(0, -Screen.height / 2 + 150);
+
         PostScore();
         achievementCheck();
     }
 
     // Update is called once per frame
-    void Update() {
-
+    void Update() {        
         scoreText.text = "Final Score: " + PlayerPrefs.GetInt("Player Score");
 
     }

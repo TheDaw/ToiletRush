@@ -5,10 +5,10 @@ public class GameConditions : MonoBehaviour {
 
     public GUIText scoreText;
     public int score;
-    public float barDisplay = 2;
-    public float speed = (float)0.01;
-    Vector2 pos = new Vector2(40, 20);
-    Vector2 size = new Vector2(40, Screen.height / 2);
+    public float barDisplay = (float)0.5;
+    public float speed = (float)0.001;
+    Vector2 pos = new Vector2(Screen.width - 50, 20);
+    Vector2 size = new Vector2(40, (Screen.height/3) + (Screen.height / 3));
     public Texture2D progressBarEmpty;
     public Texture2D progressBarFull;
 
@@ -93,7 +93,7 @@ public class GameConditions : MonoBehaviour {
             });
         }
 
-        if (barDisplay > 3)
+        if (barDisplay > 4)
         {
             //Overdrive
             Social.ReportProgress("CgkI9fGT-7MIEAIQDA", 100.0f, (bool success) => {
@@ -129,7 +129,7 @@ public class GameConditions : MonoBehaviour {
         score++;
         barDisplay += (float)0.01;
 
-        if ((score % 20) == 0)
+        if ((score % 50) == 0)
         {
             fasterSpeed();
         }
